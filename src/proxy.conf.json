@@ -1,0 +1,11 @@
+{
+    "/api/*": {
+        "target": "https://conta-gasto.herokuapp.com",
+        "loglevel": "debug",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}
