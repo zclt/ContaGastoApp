@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "github-docs": "ng build --base-href=https://zclt.github.io/ContaGastoApp/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
