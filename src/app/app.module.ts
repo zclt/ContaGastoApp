@@ -9,7 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import { PendentesComponent } from './pendentes/pendentes.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,14 @@ import { PendentesComponent } from './pendentes/pendentes.component';
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
-      multi: true   
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

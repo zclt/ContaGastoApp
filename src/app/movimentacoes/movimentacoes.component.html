@@ -1,1 +1,9 @@
 <p>movimentacoes works!</p>
+
+<div *ngFor="let item of items" style="width: 50%">
+    <mat-card>
+        <p>{{ item.valor | currency }}</p>
+        <p>{{ item.categoria }}</p>
+        <p>{{ item.data | date }}</p>
+    </mat-card>
+</div>

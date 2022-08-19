@@ -1,27 +1,24 @@
-import { NgIfContext } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AuthService, User } from '@auth0/auth0-angular';
-import { Observable } from 'rxjs';
+import { Movimentacao } from '../models/movimentacao';
+import { PagedList } from '../models/paged-list';
 
 @Component({
   selector: 'app-movimentacoes',
   templateUrl: './movimentacoes.component.html',
   styleUrls: ['./movimentacoes.component.css']
 })
-export class MovimentacoesComponent implements OnInit {
+export class MovimentacoesComponent implements OnInit {  
+  items: Movimentacao[] = []
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getAll()
   }
 
-  list = (): Observable<Object> => {
-    return this.http.get("/api/Movimentacao/List", 
-    {
-      headers:
-      {
-        'Content-Type': "application/json"
-      }
-    })
+  getAll() {
+    this.http.get<PagedList<Movimentacao>>("/api/Movimentacao/all")
+    .subscribe(response => { this.items = response.items; })
   }
 }
