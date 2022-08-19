@@ -22,7 +22,7 @@ export class AuthenticationService implements OnInit {
     localStorage.setItem("token", t);
   }
 
-  retrieveToken() {    
+  retrieveToken() {
     this.auth.getAccessTokenSilently({scope: "openid", audience:"https://zclt-dev.us.auth0.com/api/v2/"}).subscribe(t => this.storeToken(t));
   }
 

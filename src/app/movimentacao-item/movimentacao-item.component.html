@@ -1,0 +1,8 @@
+<mat-card class="movimentacao">
+    <mat-card-title>{{ movimentacao?.categoria }}</mat-card-title>
+    <mat-card-subtitle>{{ movimentacao?.data | date }}</mat-card-subtitle>
+    R$ {{ movimentacao?.valorReal | currency:'BRL':'' }}
+    <mat-chip-list aria-label="Fish selection">
+        <mat-chip *ngFor="let tag of movimentacao?.tags">{{ tag }}</mat-chip>
+    </mat-chip-list>
+</mat-card>
