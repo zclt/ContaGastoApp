@@ -1,9 +1,13 @@
-<p>movimentacoes works!</p>
-
-<div *ngFor="let item of items" style="width: 50%">
-    <mat-card>
-        <p>{{ item.valor | currency }}</p>
-        <p>{{ item.categoria }}</p>
-        <p>{{ item.data | date }}</p>
-    </mat-card>
-</div>
+<mat-spinner *ngIf="loading"></mat-spinner>
+<span *ngIf="!loading">
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        <button mat-stroked-button color="primary" (click)="getEntradas()">R$ {{ saldo?.entradas | currency:'BRL':''
+            }}</button>
+        <button mat-stroked-button color="accent" (click)="getSaidas()">R$ {{ saldo?.saidas | currency:'BRL':''
+            }}</button>
+        <button mat-stroked-button disabled>R$ {{ saldo?.saldo | currency:'BRL':'' }}</button>
+    </div>
+    <div *ngFor="let item of items">
+        <app-movimentacao-item [movimentacao]="item"></app-movimentacao-item>
+    </div>
+</span>

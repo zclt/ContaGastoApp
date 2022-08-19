@@ -11,12 +11,19 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
 import { PendentesComponent } from './pendentes/pendentes.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MovimentacaoItemComponent } from './movimentacao-item/movimentacao-item.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovimentacoesComponent,
-    PendentesComponent
+    PendentesComponent,
+    MovimentacaoItemComponent
   ],
   imports: [
     AuthModule.forRoot({
@@ -29,7 +36,12 @@ import { MatChipsModule } from '@angular/material/chips';
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
