@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config=./src/proxy.conf.json",
     "build": "ng build",
     "github-docs": "ng build --base-href=https://zclt.github.io/ContaGastoApp/",
     "watch": "ng build --watch --configuration development",
