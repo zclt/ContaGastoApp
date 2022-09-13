@@ -23,7 +23,7 @@ export class MovimentacoesComponent implements OnInit {
 
   getAll() {
     this.loading = true
-    this.http.get<PagedList<Movimentacao>>("https://conta-gasto.herokuapp.com/api/Movimentacao/all?size=100")
+    this.http.get<PagedList<Movimentacao>>("api/movimentacao/all?size=100")
     .subscribe({
       next: (response)  => { this.items = response.items; }, 
       error: (e) => this.loading = false, 
@@ -33,7 +33,7 @@ export class MovimentacoesComponent implements OnInit {
 
   getSaldo() {
     this.loading = true
-    this.http.get<Saldo>("https://conta-gasto.herokuapp.com/api/Movimentacao/saldo")
+    this.http.get<Saldo>("api/movimentacao/saldo")
     .subscribe({
       next: (response)  => { this.saldo = response; }, 
       error: (e) => this.loading = false, 
@@ -43,7 +43,7 @@ export class MovimentacoesComponent implements OnInit {
 
   getEntradas() {
     this.loading = true
-    this.http.get<Movimentacao[]>("https://conta-gasto.herokuapp.com/api/Movimentacao/entradas")
+    this.http.get<Movimentacao[]>("api/movimentacao/entradas")
     .subscribe({
       next: (response)  => { this.items = response; }, 
       error: (e) => this.loading = false, 
@@ -53,7 +53,7 @@ export class MovimentacoesComponent implements OnInit {
 
   getSaidas() {
     this.loading = true
-    this.http.get<Movimentacao[]>("https://conta-gasto.herokuapp.com/api/Movimentacao/saidas")
+    this.http.get<Movimentacao[]>("api/movimentacao/saidas")
     .subscribe({
       next: (response)  => { this.items = response; }, 
       error: (e) => this.loading = false, 

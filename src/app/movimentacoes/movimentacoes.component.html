@@ -5,7 +5,7 @@
             }}</button>
         <button mat-stroked-button color="accent" (click)="getSaidas()">R$ {{ saldo?.saidas | currency:'BRL':''
             }}</button>
-        <button mat-stroked-button disabled>R$ {{ saldo?.saldo | currency:'BRL':'' }}</button>
+        <button mat-stroked-button (click)="getAll()">R$ {{ saldo?.saldo | currency:'BRL':'' }}</button>
     </div>
     <div *ngFor="let item of items">
         <app-movimentacao-item [movimentacao]="item"></app-movimentacao-item>
