@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
 <span *ngIf="!loading">
-    <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center;">
         <button mat-stroked-button color="primary" (click)="getEntradas()">R$ {{ saldo?.entradas | currency:'BRL':''
             }}</button>
         <button mat-stroked-button color="accent" (click)="getSaidas()">R$ {{ saldo?.saidas | currency:'BRL':''

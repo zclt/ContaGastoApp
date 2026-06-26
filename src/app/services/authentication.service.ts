@@ -8,13 +8,13 @@ import { Observable, firstValueFrom } from 'rxjs';
 export class AuthenticationService implements OnInit {
   
   ngOnInit(): void {
-    this.auth.getAccessTokenSilently({scope: "openid", audience:"https://zclt-dev.us.auth0.com/api/v2/"});
+    this.auth.getAccessTokenSilently({ authorizationParams: { scope: "openid", audience: "https://zclt-dev.us.auth0.com/api/v2/" } });
   }
   
   constructor(public auth: AuthService) { }
 
   logout(): void {
-    this.auth.logout();
+    this.auth.logout({ logoutParams: { returnTo: window.location.origin } }).subscribe();
     this.storeToken("");
   }
 
@@ -23,7 +23,7 @@ export class AuthenticationService implements OnInit {
   }
 
   retrieveToken() {
-    this.auth.getAccessTokenSilently({scope: "openid", audience:"https://zclt-dev.us.auth0.com/api/v2/"}).subscribe(t => this.storeToken(t));
+    this.auth.getAccessTokenSilently({ authorizationParams: { scope: "openid", audience: "https://zclt-dev.us.auth0.com/api/v2/" } }).subscribe(t => this.storeToken(t));
   }
 
   getToken(): string | null {
