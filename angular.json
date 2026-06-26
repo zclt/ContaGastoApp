@@ -11,19 +11,19 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "docs",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -64,15 +64,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "options": {
-              "browserTarget": "ContaGastoApp:build",
-              "proxyConfig": "src/proxy.conf.json"
-            },
             "production": {
-              "browserTarget": "ContaGastoApp:build:production"
+              "buildTarget": "ContaGastoApp:build:production"
             },
             "development": {
-              "browserTarget": "ContaGastoApp:build:development"
+              "buildTarget": "ContaGastoApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ContaGastoApp:build"
+            "buildTarget": "ContaGastoApp:build"
           }
         },
         "test": {

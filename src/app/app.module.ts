@@ -13,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MovimentacaoItemComponent } from './movimentacao-item/movimentacao-item.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -28,7 +27,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [
     AuthModule.forRoot({
       domain: 'zclt-dev.us.auth0.com',
-      clientId: 'yEtu6w9d4ydoMHygcK3D9ISkDqBjcsev'
+      clientId: 'yEtu6w9d4ydoMHygcK3D9ISkDqBjcsev',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
     }),
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +40,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatChipsModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatIconModule,
     MatMenuModule,
     MatProgressSpinnerModule
